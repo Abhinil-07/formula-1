@@ -1,12 +1,147 @@
 [
   {
     "csv_relative_url": "formula-1/refs/heads/main/data/2021-04-18/circuits.csv",
-    "file_name": "test/circuits.csv",
+    "file_name": "circuits.csv",
     "extract_date": "2021-04-18"
   },
   {
     "csv_relative_url": "formula-1/refs/heads/main/data/2021-04-18/races.csv",
-    "file_name": "test1/races.csv",
+    "file_name": "races.csv",
     "extract_date": "2021-04-18"
+  },
+  {
+    "csv_relative_url": "formula-1/refs/heads/main/data/2021-04-18/lap_times/lap_times_split_1.csv",
+    "file_name": "lap_times/lap_times_split_1.csv",
+    "extract_date": "2021-04-18"
+  },
+  {
+    "csv_relative_url": "formula-1/refs/heads/main/data/2021-03-28/circuits.csv",
+    "file_name": "circuits.csv",
+    "extract_date": "2021-03-28"
+  },
+  {
+    "csv_relative_url": "formula-1/refs/heads/main/data/2021-03-28/races.csv",
+    "file_name": "races.csv",
+    "extract_date": "2021-03-28"
+  },
+  {
+    "csv_relative_url": "formula-1/refs/heads/main/data/2021-03-28/lap_times/lap_times_split_1.csv",
+    "file_name": "lap_times/lap_times_split_1.csv",
+    "extract_date": "2021-03-28"
+  },
+  {
+    "csv_relative_url": "formula-1/refs/heads/main/data/2021-03-21/circuits.csv",
+    "file_name": "circuits.csv",
+    "extract_date": "2021-03-21"
+  },
+  {
+    "csv_relative_url": "formula-1/refs/heads/main/data/2021-03-21/races.csv",
+    "file_name": "races.csv",
+    "extract_date": "2021-03-21"
+  },
+  {
+    "csv_relative_url": "formula-1/refs/heads/main/data/2021-03-21/lap_times/lap_times_split_1.csv",
+    "file_name": "lap_times/lap_times_split_1.csv",
+    "extract_date": "2021-03-21"
+  },
+  {
+    "csv_relative_url": "formula-1/refs/heads/main/data/2021-03-21/lap_times/lap_times_split_2.csv",
+    "file_name": "lap_times/lap_times_split_2.csv",
+    "extract_date": "2021-03-21"
+  },
+  {
+    "csv_relative_url": "formula-1/refs/heads/main/data/2021-03-21/lap_times/lap_times_split_3.csv",
+    "file_name": "lap_times/lap_times_split_3.csv",
+    "extract_date": "2021-03-21"
+  },
+  {
+    "csv_relative_url": "formula-1/refs/heads/main/data/2021-03-21/lap_times/lap_times_split_4.csv",
+    "file_name": "lap_times/lap_times_split_4.csv",
+    "extract_date": "2021-03-21"
+  },
+  {
+    "csv_relative_url": "formula-1/refs/heads/main/data/2021-03-21/lap_times/lap_times_split_5.csv",
+    "file_name": "lap_times/lap_times_split_5.csv",
+    "extract_date": "2021-03-21"
+  },
+  {
+    "json_relative_url": "formula-1/refs/heads/main/data/2021-04-18/constructors.json",
+    "file_name": "constructors.json",
+    "extract_date": "2021-04-18"
+  },
+  {
+    "json_relative_url": "formula-1/refs/heads/main/data/2021-04-18/drivers.json",
+    "file_name": "drivers.json",
+    "extract_date": "2021-04-18"
+  },
+  {
+    "json_relative_url": "formula-1/refs/heads/main/data/2021-04-18/pit_stops.json",
+    "file_name": "pit_stops.json",
+    "extract_date": "2021-04-18"
+  },
+  {
+    "json_relative_url": "formula-1/refs/heads/main/data/2021-04-18/results.json",
+    "file_name": "results.json",
+    "extract_date": "2021-04-18"
+  },
+  {
+    "json_relative_url": "formula-1/refs/heads/main/data/2021-04-18/qualifying/qualifying_split_1.json",
+    "file_name": "qualifying/qualifying_split_1.json",
+    "extract_date": "2021-04-18"
+  },
+  {
+    "json_relative_url": "formula-1/refs/heads/main/data/2021-03-28/constructors.json",
+    "file_name": "constructors.json",
+    "extract_date": "2021-03-28"
+  },
+  {
+    "json_relative_url": "formula-1/refs/heads/main/data/2021-03-28/drivers.json",
+    "file_name": "drivers.json",
+    "extract_date": "2021-03-28"
+  },
+  {
+    "json_relative_url": "formula-1/refs/heads/main/data/2021-03-28/pit_stops.json",
+    "file_name": "pit_stops.json",
+    "extract_date": "2021-03-28"
+  },
+  {
+    "json_relative_url": "formula-1/refs/heads/main/data/2021-03-28/results.json",
+    "file_name": "results.json",
+    "extract_date": "2021-03-28"
+  },
+  {
+    "json_relative_url": "formula-1/refs/heads/main/data/2021-03-28/qualifying/qualifying_split_1.json",
+    "file_name": "qualifying/qualifying_split_1.json",
+    "extract_date": "2021-03-28"
+  },
+  {
+    "json_relative_url": "formula-1/refs/heads/main/data/2021-03-21/constructors.json",
+    "file_name": "constructors.json",
+    "extract_date": "2021-03-21"
+  },
+  {
+    "json_relative_url": "formula-1/refs/heads/main/data/2021-03-21/drivers.json",
+    "file_name": "drivers.json",
+    "extract_date": "2021-03-21"
+  },
+  {
+    "json_relative_url": "formula-1/refs/heads/main/data/2021-03-21/pit_stops.json",
+    "file_name": "pit_stops.json",
+    "extract_date": "2021-03-21"
+  },
+  {
+    "json_relative_url": "formula-1/refs/heads/main/data/2021-03-21/results.json",
+    "file_name": "results.json",
+    "extract_date": "2021-03-21"
+  },
+  {
+    "json_relative_url": "formula-1/refs/heads/main/data/2021-03-21/qualifying/qualifying_split_1.json",
+    "file_name": "qualifying/qualifying_split_1.json",
+    "extract_date": "2021-03-21"
+  },
+  {
+    "json_relative_url": "formula-1/refs/heads/main/data/2021-03-21/qualifying/qualifying_split_2.json",
+    "file_name": "qualifying/qualifying_split_2.json",
+    "extract_date": "2021-03-21"
   }
 ]
