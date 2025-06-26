@@ -2,9 +2,11 @@
   {
     "csv_relative_url": "formula-1/refs/heads/main/data/2021-04-18/circuits.csv",
     "file_name": "circuits.csv"
+    "extract_date": "2021-04-18"
   },
   {
     "csv_relative_url": "formula-1/refs/heads/main/data/2021-04-18/races.csv",
     "file_name": "races.csv"
+    "extract_date": "2021-04-18"
   },
 ]
