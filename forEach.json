@@ -1,26 +1,10 @@
 [
   {
-    "relative_url": "formula-1/refs/heads/main/data/2021-04-18/circuits.csv",
+    "csv_relative_url": "formula-1/refs/heads/main/data/2021-04-18/circuits.csv",
     "file_name": "circuits.csv"
   },
   {
-    "relative_url": "formula-1/refs/heads/main/data/2021-04-18/constructors.json",
-    "file_name": "constructors.json"
-  },
-  {
-    "relative_url": "formula-1/refs/heads/main/data/2021-04-18/drivers.json",
-    "file_name": "drivers.json"
-  },
-  {
-    "relative_url": "formula-1/refs/heads/main/data/2021-04-18/pit_stops.json",
-    "file_name": "pit_stops.json"
-  },
-  {
-    "relative_url": "formula-1/refs/heads/main/data/2021-04-18/races.csv",
+    "csv_relative_url": "formula-1/refs/heads/main/data/2021-04-18/races.csv",
     "file_name": "races.csv"
   },
-  {
-    "relative_url": "formula-1/refs/heads/main/data/2021-04-18/results.json",
-    "file_name": "results.json"
-  }
 ]
