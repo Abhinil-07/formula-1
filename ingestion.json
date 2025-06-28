@@ -1,0 +1,26 @@
+[
+  {
+    "notebook_path": "/Users/jonyprayas690@gmail.com/formula-1/databricks_notebooks/ingestion/ingest_and_transform_races_file_to_processed"
+  },
+  {
+    "notebook_path": "/Users/jonyprayas690@gmail.com/formula-1/databricks_notebooks/ingestion/ingest_and_transform_circuits_file_to_processed"
+  },
+  {
+    "notebook_path": "/Users/jonyprayas690@gmail.com/formula-1/databricks_notebooks/ingestion/ingest_and_transform_constructors_file_to_processed"
+  },
+  {
+    "notebook_path": "/Users/jonyprayas690@gmail.com/formula-1/databricks_notebooks/ingestion/ingest_and_transform_drivers_file_to_processed"
+  },
+  {
+    "notebook_path": "/Users/jonyprayas690@gmail.com/formula-1/databricks_notebooks/ingestion/ingest_and_transform_lap_times_file_to_processed"
+  },
+  {
+    "notebook_path": "/Users/jonyprayas690@gmail.com/formula-1/databricks_notebooks/ingestion/ingest_and_transform_pitstops_file_to_processed"
+  },
+  {
+    "notebook_path": "/Users/jonyprayas690@gmail.com/formula-1/databricks_notebooks/ingestion/ingest_and_transform_qualifying_file_to_processed"
+  },
+  {
+    "notebook_path": "/Users/jonyprayas690@gmail.com/formula-1/databricks_notebooks/ingestion/ingest_and_transform_results_file_to_processed"
+  }
+]
