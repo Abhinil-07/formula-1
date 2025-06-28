@@ -1,0 +1,33 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "formula1-datafactoryabhi"
+		},
+		"ls_csvtoadls_accountKey": {
+			"value": ""
+		},
+		"ls_jsontoadls_accountKey": {
+			"value": ""
+		},
+		"AzureDatabricks1_properties_typeProperties_existingClusterId": {
+			"value": "0619-164539-nz0a11p3"
+		},
+		"ls_csvtoadls_properties_typeProperties_url": {
+			"value": "https://formula1dlabi2.dfs.core.windows.net/"
+		},
+		"ls_ingestcsvfromgithub_properties_typeProperties_url": {
+			"value": "https://raw.githubusercontent.com/Abhinil-07/"
+		},
+		"ls_jsonfromgithub_properties_typeProperties_url": {
+			"value": "https://raw.githubusercontent.com/Abhinil-07/"
+		},
+		"ls_jsontoadls_properties_typeProperties_url": {
+			"value": "https://formula1dlabi2.dfs.core.windows.net/"
+		},
+		"ls_lookupfromgithub_properties_typeProperties_url": {
+			"value": "https://raw.githubusercontent.com/Abhinil-07/formula-1/refs/heads/main/"
+		}
+	}
+}
