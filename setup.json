@@ -1,0 +1,14 @@
+[
+  {
+    "notebook_path": "/Users/jonyprayas690@gmail.com/formula-1/databricks_notebooks/setup/mount_adls_containers"
+  },
+  {
+    "notebook_path": "/Users/jonyprayas690@gmail.com/formula-1/databricks_notebooks/setup/prepare_for_incremental_load"
+  },
+  {
+    "notebook_path": "/Users/jonyprayas690@gmail.com/formula-1/databricks_notebooks/includes/common_functions"
+  },
+  {
+    "notebook_path": "/Users/jonyprayas690@gmail.com/formula-1/databricks_notebooks/includes/configurations"
+  }
+]
