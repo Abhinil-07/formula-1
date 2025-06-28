@@ -1,0 +1,27 @@
+{
+	"name": "ds_jsonfromgithub",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_jsonfromgithub",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"json_relative_url": {
+				"type": "String"
+			}
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "HttpServerLocation",
+				"relativeUrl": {
+					"value": "@dataset().json_relative_url",
+					"type": "Expression"
+				}
+			}
+		},
+		"schema": {}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

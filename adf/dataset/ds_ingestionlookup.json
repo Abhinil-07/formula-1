@@ -1,0 +1,19 @@
+{
+	"name": "ds_ingestionlookup",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_lookupfromgithub",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "HttpServerLocation",
+				"relativeUrl": "ingestion.json"
+			}
+		},
+		"schema": {}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

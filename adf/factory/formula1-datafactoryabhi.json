@@ -1,0 +1,9 @@
+{
+	"name": "formula1-datafactoryabhi",
+	"location": "eastasia",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "3a0dc912-d77d-4c76-b5f8-c887c2b863d6",
+		"tenantId": "b2f57371-782c-4a40-84df-9f93d03cdccd"
+	}
+}

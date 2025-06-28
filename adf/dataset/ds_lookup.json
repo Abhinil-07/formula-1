@@ -1,0 +1,19 @@
+{
+	"name": "ds_lookup",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_lookupfromgithub",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "HttpServerLocation",
+				"relativeUrl": "forEach.json"
+			}
+		},
+		"schema": {}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
