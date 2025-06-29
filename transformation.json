@@ -1,0 +1,14 @@
+[
+  {
+    "notebook_path": "/Users/jonyprayas690@gmail.com/formula-1/databricks_notebooks/trans/race_results"
+  },
+  {
+    "notebook_path": "/Users/jonyprayas690@gmail.com/formula-1/databricks_notebooks/trans/constructor_standings"
+  },
+  {
+    "notebook_path": "/Users/jonyprayas690@gmail.com/formula-1/databricks_notebooks/trans/driver_standings"
+  },
+  {
+    "notebook_path": "/Users/jonyprayas690@gmail.com/formula-1/databricks_notebooks/trans/calculated_race_results"
+  }
+]
