@@ -15,7 +15,7 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"notebookPath": "/Users/jonyprayas690@gmail.com/formula-1/databricks_notebooks/setup/mount_adls_containers"
+					"notebookPath": "/Users/jonyprayas690@gmail.com/formula-1/databricks_notebooks/analysis/viz_dominant_drivers"
 				},
 				"linkedServiceName": {
 					"referenceName": "AzureDatabricks1",

@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Lookup",
+				"name": "Lookup Ingestion Paths",
 				"type": "Lookup",
 				"dependsOn": [],
 				"policy": {
@@ -33,11 +33,11 @@
 				}
 			},
 			{
-				"name": "ForEach1",
+				"name": "Ingestion from HTTP connectors",
 				"type": "ForEach",
 				"dependsOn": [
 					{
-						"activity": "Lookup",
+						"activity": "Lookup Ingestion Paths",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -46,7 +46,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"items": {
-						"value": "@activity('Lookup').output.value",
+						"value": "@activity('Lookup Ingestion Paths').output.value",
 						"type": "Expression"
 					},
 					"activities": [
@@ -206,11 +206,11 @@
 				}
 			},
 			{
-				"name": "ForEach2",
+				"name": "Ingestion",
 				"type": "ForEach",
 				"dependsOn": [
 					{
-						"activity": "Lookup2",
+						"activity": "Lookup ingestion notebook paths",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -219,7 +219,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"items": {
-						"value": "@activity('Lookup2').output.value",
+						"value": "@activity('Lookup ingestion notebook paths').output.value",
 						"type": "Expression"
 					},
 					"isSequential": true,
@@ -261,11 +261,11 @@
 				}
 			},
 			{
-				"name": "Lookup1",
+				"name": "Lookup setup notebooks path",
 				"type": "Lookup",
 				"dependsOn": [
 					{
-						"activity": "ForEach1",
+						"activity": "Ingestion from HTTP connectors",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -298,11 +298,11 @@
 				}
 			},
 			{
-				"name": "ForEach4",
+				"name": "Setup",
 				"type": "ForEach",
 				"dependsOn": [
 					{
-						"activity": "Lookup1",
+						"activity": "Lookup setup notebooks path",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -311,7 +311,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"items": {
-						"value": "@activity('Lookup1').output.value",
+						"value": "@activity('Lookup setup notebooks path').output.value",
 						"type": "Expression"
 					},
 					"isSequential": true,
@@ -343,11 +343,11 @@
 				}
 			},
 			{
-				"name": "Lookup2",
+				"name": "Lookup ingestion notebook paths",
 				"type": "Lookup",
 				"dependsOn": [
 					{
-						"activity": "ForEach4",
+						"activity": "Setup",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -380,11 +380,12 @@
 				}
 			},
 			{
-				"name": "Notebook1",
+				"name": "Cleanup",
+				"description": "Move folders from raw to archive, to keep raw clean for next ingestion",
 				"type": "DatabricksNotebook",
 				"dependsOn": [
 					{
-						"activity": "ForEach2",
+						"activity": "Ingestion",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -405,12 +406,230 @@
 					"referenceName": "AzureDatabricks1",
 					"type": "LinkedServiceReference"
 				}
+			},
+			{
+				"name": "Lookup transformaton notebook paths",
+				"type": "Lookup",
+				"dependsOn": [
+					{
+						"activity": "Cleanup",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "JsonSource",
+						"storeSettings": {
+							"type": "HttpReadSettings",
+							"requestMethod": "GET"
+						},
+						"formatSettings": {
+							"type": "JsonReadSettings"
+						}
+					},
+					"dataset": {
+						"referenceName": "ds_translookup",
+						"type": "DatasetReference"
+					},
+					"firstRowOnly": false
+				}
+			},
+			{
+				"name": "Transformation",
+				"type": "ForEach",
+				"dependsOn": [
+					{
+						"activity": "Lookup transformaton notebook paths",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"items": {
+						"value": "@activity('Lookup transformaton notebook paths').output.value",
+						"type": "Expression"
+					},
+					"isSequential": true,
+					"activities": [
+						{
+							"name": "Transformation Notebooks",
+							"type": "DatabricksNotebook",
+							"dependsOn": [],
+							"policy": {
+								"timeout": "0.12:00:00",
+								"retry": 0,
+								"retryIntervalInSeconds": 30,
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"notebookPath": {
+									"value": "@item().notebook_path",
+									"type": "Expression"
+								}
+							},
+							"linkedServiceName": {
+								"referenceName": "AzureDatabricks1",
+								"type": "LinkedServiceReference"
+							}
+						}
+					]
+				}
+			},
+			{
+				"name": "Lookup analysis paths",
+				"type": "Lookup",
+				"dependsOn": [
+					{
+						"activity": "Transformation",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "JsonSource",
+						"storeSettings": {
+							"type": "HttpReadSettings",
+							"requestMethod": "GET"
+						},
+						"formatSettings": {
+							"type": "JsonReadSettings"
+						}
+					},
+					"dataset": {
+						"referenceName": "ds_analysislookup",
+						"type": "DatasetReference"
+					},
+					"firstRowOnly": false
+				}
+			},
+			{
+				"name": "Analysis Notebooks",
+				"type": "ForEach",
+				"dependsOn": [
+					{
+						"activity": "Lookup analysis paths",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"items": {
+						"value": "@activity('Lookup analysis paths').output.value",
+						"type": "Expression"
+					},
+					"isSequential": true,
+					"activities": [
+						{
+							"name": "Notebook3",
+							"type": "DatabricksNotebook",
+							"dependsOn": [],
+							"policy": {
+								"timeout": "0.12:00:00",
+								"retry": 0,
+								"retryIntervalInSeconds": 30,
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"notebookPath": {
+									"value": "@item().notebook_path",
+									"type": "Expression"
+								}
+							},
+							"linkedServiceName": {
+								"referenceName": "AzureDatabricks1",
+								"type": "LinkedServiceReference"
+							}
+						}
+					]
+				}
+			},
+			{
+				"name": "Dominant drivers visualization",
+				"type": "DatabricksNotebook",
+				"dependsOn": [
+					{
+						"activity": "Analysis Notebooks",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": "/Users/jonyprayas690@gmail.com/formula-1/databricks_notebooks/analysis/viz_dominant_drivers"
+				},
+				"linkedServiceName": {
+					"referenceName": "AzureDatabricks1",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "Dominant teams visualization",
+				"type": "DatabricksNotebook",
+				"dependsOn": [
+					{
+						"activity": "Dominant drivers visualization",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": "/Users/jonyprayas690@gmail.com/formula-1/databricks_notebooks/analysis/viz_dominant_teams"
+				},
+				"linkedServiceName": {
+					"referenceName": "AzureDatabricks1",
+					"type": "LinkedServiceReference"
+				}
 			}
 		],
 		"parameters": {
 			"file_extract_date": {
 				"type": "string",
-				"defaultValue": "2021-03-28"
+				"defaultValue": "2021-03-21"
 			},
 			"source": {
 				"type": "string",
